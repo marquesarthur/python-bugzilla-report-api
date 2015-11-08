@@ -6,6 +6,7 @@ import time
 from datetime import date
 import plotly.plotly as py
 import plotly.graph_objs as graph
+from pprint import pprint
 
 REST = '/rest'
 
@@ -40,7 +41,7 @@ class BugzillaReport:
 
   def getIncludedFields(self):
     """ Get the list of fields to be extracted from the bug info """
-    return '&include_fields=id,classification,creation_time,last_change_time,is_open,priority,severity,status,summary'
+    return '&include_fields=id,component,classification,creation_time,last_change_time,is_open,priority,severity,status,summary'
 
   def login(self):
     """ Login into the bugzilla server """
@@ -86,6 +87,7 @@ class BugzillaReport:
     self.bugs['closed'].extend(self.getBugs(status, dateParam))
 
   def getBugs(self, status, dateParam):
+    """ Get bugs with a specific status in a date range """
     self.isLoggedIn()
     bugUri = self.uri + '/bug?status=' + status + '&last_change_time=' + dateParam + self.getIncludedFields() + self.getTokenParam()
     data = requests.get(bugUri)
@@ -97,12 +99,20 @@ class BugzillaReport:
 
 
   def countBugsOfDay(self, day, bugList):
+    """ Count the number of bugs on a day """
     return sum(1 for bug in bugList if self.getDateOfBug(bug) == day)
 
   def getDateOfBug(self, bug):
+    """ 
+      Get the date of a bug in order to compare it with a dateTime
+    """
+    # FIXME: I am new to python. There may be a easy way to do this. But I'm still looking into it.
     return datetime.datetime.strptime(json.dumps(bug['last_change_time']), '"%Y-%m-%dT%H:%M:%SZ"').date()
 
   def viewBugsPerDayOf(self, bugList):
+    """ 
+      Generate a graph of bugs (axis Y) per day (axis X) of given bug list
+    """
     x = [];
     y = [];
 
@@ -120,6 +130,7 @@ class BugzillaReport:
     return graph.Scatter(x=x, y=y)
 
   def viewBugsPerDay(self):
+    """ Generate a report of opened and closed bugs per day of a give bugzilla server """
     opened = self.viewBugsPerDayOf(self.bugs['opened'])
     closed = self.viewBugsPerDayOf(self.bugs['closed'])
 
@@ -127,12 +138,90 @@ class BugzillaReport:
     
     return data
 
+  def countBugsOfComponent(self, component, bugList):
+    """ Count the number of bugs of a component """
+    return sum(1 for bug in bugList if json.dumps(bug['component']).strip('"') == component)
+
+  def countBugsOfComponentWithSeverity(self, component, severity, bugList):
+    """ Count the number of bugs of a component with a given severity"""
+    return sum(1 for bug in bugList if json.dumps(bug['component']).strip('"') == component and json.dumps(bug['severity']).strip('"') == severity)
+
+  def viewBugsPerComponentOf(self, bugList):
+    """ 
+      
+    """
+    
+    components = []
+    severities = []
+    
+    data = []
+
+    for bug in bugList:
+      bugComponent = json.dumps(bug['component']).strip('"')
+      bugSeverity = json.dumps(bug['severity']).strip('"')
+      if not bugComponent in components:
+        components.append(bugComponent)
+      if not bugSeverity in severities:
+        severities.append(bugSeverity)
+        
+    print components
+    print severities
+    print ''
+
+    count = 0
+    for component in components:
+      x = []
+      y = []
+      diameters = []
+
+      numberOfBugsInComponent = self.countBugsOfComponent(component, bugList)
+      print '%s %s' %(component, numberOfBugsInComponent)
+
+      for severity in severities:
+        numberOfBugsInSeverity = self.countBugsOfComponentWithSeverity(component, severity, bugList)
+        print ' %s %s' %(severity, numberOfBugsInSeverity)
+        x.append(severity)
+        y.append(numberOfBugsInSeverity)
+
+      
+      
+      trace = graph.Bar(x=x, y=y, name=component)
+      data.append(trace)
+
+      count += 1
+      if count == 3:
+        break
+
+
+      
+    pprint(data)
+    return data   
+
+
+
+
+  def viewBugsPerComponent(self):
+    """ 
+      Generate a report of bugs per component. 
+      Currently it only generates the bugs that are opened
+    """
+    
+
+    
+    
+    return self.viewBugsPerComponentOf(self.bugs['opened'])
+
+
 
 # Some methods for test, at leat while I am developing the tool
 report = BugzillaReport(config['username'], config['password'], config['uri'])
 report.login()
 report.getOpenedBugs()
 report.getClosedBugs()
-data=report.viewBugsPerDay()
-plot_url = py.plot(data, filename='number-of-bugs-per-day')
+# data=report.viewBugsPerDay()
+# plot_url = py.plot(data, filename='number-of-bugs-per-day')
+data = report.viewBugsPerComponent()
+layout = graph.Layout(barmode='group')
 
+fig = graph.Figure(data=data, layout=layout)
+plot_url = py.plot(data, filename='number-of-bugs-per-component-per-severity')
