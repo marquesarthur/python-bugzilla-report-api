@@ -1,0 +1,302 @@
+[
+    {
+        "name": "SpiceDispenser", 
+        "type": "bar", 
+        "x": [
+            "major", 
+            "minor", 
+            "normal", 
+            "critical", 
+            "blocker", 
+            "enhancement"
+        ], 
+        "y": [
+            2, 
+            0, 
+            3, 
+            1, 
+            0, 
+            0
+        ]
+    }, 
+    {
+        "name": "VoiceInterface", 
+        "type": "bar", 
+        "x": [
+            "major", 
+            "minor", 
+            "normal", 
+            "critical", 
+            "blocker", 
+            "enhancement"
+        ], 
+        "y": [
+            1, 
+            3, 
+            1, 
+            0, 
+            0, 
+            0
+        ]
+    }, 
+    {
+        "name": "Salt", 
+        "type": "bar", 
+        "x": [
+            "major", 
+            "minor", 
+            "normal", 
+            "critical", 
+            "blocker", 
+            "enhancement"
+        ], 
+        "y": [
+            2, 
+            0, 
+            9, 
+            0, 
+            0, 
+            1
+        ]
+    }, 
+    {
+        "name": "SaltSprinkler", 
+        "type": "bar", 
+        "x": [
+            "major", 
+            "minor", 
+            "normal", 
+            "critical", 
+            "blocker", 
+            "enhancement"
+        ], 
+        "y": [
+            5, 
+            1, 
+            5, 
+            1, 
+            0, 
+            0
+        ]
+    }, 
+    {
+        "name": "comp2", 
+        "type": "bar", 
+        "x": [
+            "major", 
+            "minor", 
+            "normal", 
+            "critical", 
+            "blocker", 
+            "enhancement"
+        ], 
+        "y": [
+            0, 
+            0, 
+            2, 
+            1, 
+            0, 
+            0
+        ]
+    }, 
+    {
+        "name": "Widget Gears", 
+        "type": "bar", 
+        "x": [
+            "major", 
+            "minor", 
+            "normal", 
+            "critical", 
+            "blocker", 
+            "enhancement"
+        ], 
+        "y": [
+            2, 
+            0, 
+            7, 
+            5, 
+            1, 
+            0
+        ]
+    }, 
+    {
+        "name": "WeatherControl", 
+        "type": "bar", 
+        "x": [
+            "major", 
+            "minor", 
+            "normal", 
+            "critical", 
+            "blocker", 
+            "enhancement"
+        ], 
+        "y": [
+            1, 
+            0, 
+            4, 
+            2, 
+            0, 
+            0
+        ]
+    }, 
+    {
+        "name": "Comp1", 
+        "type": "bar", 
+        "x": [
+            "major", 
+            "minor", 
+            "normal", 
+            "critical", 
+            "blocker", 
+            "enhancement"
+        ], 
+        "y": [
+            0, 
+            0, 
+            1, 
+            1, 
+            0, 
+            0
+        ]
+    }, 
+    {
+        "name": "PoliticalBackStabbing", 
+        "type": "bar", 
+        "x": [
+            "major", 
+            "minor", 
+            "normal", 
+            "critical", 
+            "blocker", 
+            "enhancement"
+        ], 
+        "y": [
+            0, 
+            0, 
+            2, 
+            1, 
+            0, 
+            0
+        ]
+    }, 
+    {
+        "name": "renamed component", 
+        "type": "bar", 
+        "x": [
+            "major", 
+            "minor", 
+            "normal", 
+            "critical", 
+            "blocker", 
+            "enhancement"
+        ], 
+        "y": [
+            0, 
+            0, 
+            2, 
+            1, 
+            0, 
+            0
+        ]
+    }, 
+    {
+        "name": "Venom", 
+        "type": "bar", 
+        "x": [
+            "major", 
+            "minor", 
+            "normal", 
+            "critical", 
+            "blocker", 
+            "enhancement"
+        ], 
+        "y": [
+            0, 
+            0, 
+            1, 
+            0, 
+            0, 
+            0
+        ]
+    }, 
+    {
+        "name": "Salt II", 
+        "type": "bar", 
+        "x": [
+            "major", 
+            "minor", 
+            "normal", 
+            "critical", 
+            "blocker", 
+            "enhancement"
+        ], 
+        "y": [
+            0, 
+            0, 
+            1, 
+            0, 
+            0, 
+            0
+        ]
+    }, 
+    {
+        "name": "Web", 
+        "type": "bar", 
+        "x": [
+            "major", 
+            "minor", 
+            "normal", 
+            "critical", 
+            "blocker", 
+            "enhancement"
+        ], 
+        "y": [
+            0, 
+            0, 
+            1, 
+            1, 
+            0, 
+            0
+        ]
+    }, 
+    {
+        "name": "Digestive Goo", 
+        "type": "bar", 
+        "x": [
+            "major", 
+            "minor", 
+            "normal", 
+            "critical", 
+            "blocker", 
+            "enhancement"
+        ], 
+        "y": [
+            1, 
+            0, 
+            0, 
+            0, 
+            0, 
+            0
+        ]
+    }, 
+    {
+        "name": "EconomicControl", 
+        "type": "bar", 
+        "x": [
+            "major", 
+            "minor", 
+            "normal", 
+            "critical", 
+            "blocker", 
+            "enhancement"
+        ], 
+        "y": [
+            0, 
+            0, 
+            0, 
+            0, 
+            1, 
+            0
+        ]
+    }
+]

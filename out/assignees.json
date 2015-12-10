@@ -1,0 +1,198 @@
+[
+    {
+        "name": "tara", 
+        "type": "bar", 
+        "x": [
+            "VERIFIED", 
+            "CONFIRMED", 
+            "RESOLVED"
+        ], 
+        "y": [
+            1, 
+            24, 
+            0
+        ]
+    }, 
+    {
+        "name": "chribbe89", 
+        "type": "bar", 
+        "x": [
+            "VERIFIED", 
+            "CONFIRMED", 
+            "RESOLVED"
+        ], 
+        "y": [
+            0, 
+            1, 
+            0
+        ]
+    }, 
+    {
+        "name": "justdave", 
+        "type": "bar", 
+        "x": [
+            "VERIFIED", 
+            "CONFIRMED", 
+            "RESOLVED"
+        ], 
+        "y": [
+            0, 
+            12, 
+            0
+        ]
+    }, 
+    {
+        "name": "chubinskyiroman", 
+        "type": "bar", 
+        "x": [
+            "VERIFIED", 
+            "CONFIRMED", 
+            "RESOLVED"
+        ], 
+        "y": [
+            0, 
+            1, 
+            0
+        ]
+    }, 
+    {
+        "name": "tara", 
+        "type": "bar", 
+        "x": [
+            "VERIFIED", 
+            "CONFIRMED", 
+            "RESOLVED"
+        ], 
+        "y": [
+            0, 
+            2, 
+            1
+        ]
+    }, 
+    {
+        "name": "sam.folkwilliams", 
+        "type": "bar", 
+        "x": [
+            "VERIFIED", 
+            "CONFIRMED", 
+            "RESOLVED"
+        ], 
+        "y": [
+            1, 
+            8, 
+            2
+        ]
+    }, 
+    {
+        "name": "mybutt", 
+        "type": "bar", 
+        "x": [
+            "VERIFIED", 
+            "CONFIRMED", 
+            "RESOLVED"
+        ], 
+        "y": [
+            0, 
+            1, 
+            1
+        ]
+    }, 
+    {
+        "name": "gerv", 
+        "type": "bar", 
+        "x": [
+            "VERIFIED", 
+            "CONFIRMED", 
+            "RESOLVED"
+        ], 
+        "y": [
+            0, 
+            3, 
+            0
+        ]
+    }, 
+    {
+        "name": "vinod", 
+        "type": "bar", 
+        "x": [
+            "VERIFIED", 
+            "CONFIRMED", 
+            "RESOLVED"
+        ], 
+        "y": [
+            0, 
+            1, 
+            0
+        ]
+    }, 
+    {
+        "name": "cyeh", 
+        "type": "bar", 
+        "x": [
+            "VERIFIED", 
+            "CONFIRMED", 
+            "RESOLVED"
+        ], 
+        "y": [
+            0, 
+            0, 
+            1
+        ]
+    }, 
+    {
+        "name": "asoudack", 
+        "type": "bar", 
+        "x": [
+            "VERIFIED", 
+            "CONFIRMED", 
+            "RESOLVED"
+        ], 
+        "y": [
+            0, 
+            0, 
+            1
+        ]
+    }, 
+    {
+        "name": "jacques.florence", 
+        "type": "bar", 
+        "x": [
+            "VERIFIED", 
+            "CONFIRMED", 
+            "RESOLVED"
+        ], 
+        "y": [
+            0, 
+            0, 
+            1
+        ]
+    }, 
+    {
+        "name": "anuraje", 
+        "type": "bar", 
+        "x": [
+            "VERIFIED", 
+            "CONFIRMED", 
+            "RESOLVED"
+        ], 
+        "y": [
+            0, 
+            0, 
+            1
+        ]
+    }, 
+    {
+        "name": "vivienne.lewis", 
+        "type": "bar", 
+        "x": [
+            "VERIFIED", 
+            "CONFIRMED", 
+            "RESOLVED"
+        ], 
+        "y": [
+            1, 
+            0, 
+            0
+        ]
+    }
+]

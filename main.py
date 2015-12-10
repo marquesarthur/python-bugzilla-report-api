@@ -1,5 +1,5 @@
 # Imports
-from report import bugzilla
+from data import Bugzilla
 import plotly.plotly as py
 import plotly.graph_objs as graph
 
@@ -9,9 +9,9 @@ config = {'username' : 'marques.art@gmail.com', 'password' : 'bugT3ster', 'uri' 
 
 
 # Some methods for test, at leat while I am developing the tool
-report = bugzilla(config['username'], config['password'], config['uri'])
-report.setUp()
-report.extractData(None)
+bugzillaData = Bugzilla(config['username'], config['password'], config['uri'])
+bugzillaData.setUp()
+bugzillaData.extractData(None)
 
 # result.getOpenedBugs()
 # result.getClosedBugs()
