@@ -9,8 +9,22 @@
         ], 
         "y": [
             1, 
-            24, 
-            0
+            26, 
+            1
+        ]
+    }, 
+    {
+        "name": "justdave", 
+        "type": "bar", 
+        "x": [
+            "VERIFIED", 
+            "CONFIRMED", 
+            "RESOLVED"
+        ], 
+        "y": [
+            0, 
+            16, 
+            1
         ]
     }, 
     {
@@ -28,7 +42,7 @@
         ]
     }, 
     {
-        "name": "justdave", 
+        "name": "mabst45", 
         "type": "bar", 
         "x": [
             "VERIFIED", 
@@ -37,7 +51,7 @@
         ], 
         "y": [
             0, 
-            12, 
+            1, 
             0
         ]
     }, 
@@ -65,7 +79,7 @@
         ], 
         "y": [
             0, 
-            2, 
+            3, 
             1
         ]
     }, 
@@ -79,8 +93,8 @@
         ], 
         "y": [
             1, 
-            8, 
-            2
+            15, 
+            8
         ]
     }, 
     {
@@ -113,6 +127,34 @@
     }, 
     {
         "name": "vinod", 
+        "type": "bar", 
+        "x": [
+            "VERIFIED", 
+            "CONFIRMED", 
+            "RESOLVED"
+        ], 
+        "y": [
+            0, 
+            1, 
+            0
+        ]
+    }, 
+    {
+        "name": "max.sharapov", 
+        "type": "bar", 
+        "x": [
+            "VERIFIED", 
+            "CONFIRMED", 
+            "RESOLVED"
+        ], 
+        "y": [
+            0, 
+            9, 
+            0
+        ]
+    }, 
+    {
+        "name": "ayoaregbesola", 
         "type": "bar", 
         "x": [
             "VERIFIED", 
@@ -183,6 +225,20 @@
     }, 
     {
         "name": "vivienne.lewis", 
+        "type": "bar", 
+        "x": [
+            "VERIFIED", 
+            "CONFIRMED", 
+            "RESOLVED"
+        ], 
+        "y": [
+            1, 
+            0, 
+            0
+        ]
+    }, 
+    {
+        "name": "bob.crosby", 
         "type": "bar", 
         "x": [
             "VERIFIED", 

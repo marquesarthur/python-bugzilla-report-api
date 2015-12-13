@@ -5,17 +5,17 @@
         "x": [
             "major", 
             "minor", 
-            "normal", 
             "critical", 
             "blocker", 
+            "normal", 
             "enhancement"
         ], 
         "y": [
             2, 
             0, 
-            3, 
             1, 
             0, 
+            3, 
             0
         ]
     }, 
@@ -25,17 +25,17 @@
         "x": [
             "major", 
             "minor", 
-            "normal", 
             "critical", 
             "blocker", 
+            "normal", 
             "enhancement"
         ], 
         "y": [
             1, 
+            4, 
+            2, 
+            0, 
             3, 
-            1, 
-            0, 
-            0, 
             0
         ]
     }, 
@@ -45,57 +45,37 @@
         "x": [
             "major", 
             "minor", 
-            "normal", 
             "critical", 
             "blocker", 
+            "normal", 
             "enhancement"
         ], 
         "y": [
             2, 
             0, 
-            9, 
             0, 
-            0, 
+            1, 
+            10, 
             1
         ]
     }, 
     {
-        "name": "SaltSprinkler", 
+        "name": "PoliticalBackStabbing", 
         "type": "bar", 
         "x": [
             "major", 
             "minor", 
-            "normal", 
             "critical", 
             "blocker", 
-            "enhancement"
-        ], 
-        "y": [
-            5, 
-            1, 
-            5, 
-            1, 
-            0, 
-            0
-        ]
-    }, 
-    {
-        "name": "comp2", 
-        "type": "bar", 
-        "x": [
-            "major", 
-            "minor", 
             "normal", 
-            "critical", 
-            "blocker", 
             "enhancement"
         ], 
         "y": [
             0, 
             0, 
+            1, 
+            1, 
             2, 
-            1, 
-            0, 
             0
         ]
     }, 
@@ -105,17 +85,57 @@
         "x": [
             "major", 
             "minor", 
-            "normal", 
             "critical", 
             "blocker", 
+            "normal", 
             "enhancement"
         ], 
         "y": [
-            2, 
+            3, 
             0, 
-            7, 
+            10, 
+            4, 
+            15, 
+            0
+        ]
+    }, 
+    {
+        "name": "SaltSprinkler", 
+        "type": "bar", 
+        "x": [
+            "major", 
+            "minor", 
+            "critical", 
+            "blocker", 
+            "normal", 
+            "enhancement"
+        ], 
+        "y": [
             5, 
             1, 
+            2, 
+            0, 
+            6, 
+            0
+        ]
+    }, 
+    {
+        "name": "comp2", 
+        "type": "bar", 
+        "x": [
+            "major", 
+            "minor", 
+            "critical", 
+            "blocker", 
+            "normal", 
+            "enhancement"
+        ], 
+        "y": [
+            1, 
+            0, 
+            1, 
+            0, 
+            2, 
             0
         ]
     }, 
@@ -125,17 +145,17 @@
         "x": [
             "major", 
             "minor", 
-            "normal", 
             "critical", 
             "blocker", 
+            "normal", 
             "enhancement"
         ], 
         "y": [
             1, 
             0, 
-            4, 
             2, 
             0, 
+            4, 
             0
         ]
     }, 
@@ -145,9 +165,9 @@
         "x": [
             "major", 
             "minor", 
-            "normal", 
             "critical", 
             "blocker", 
+            "normal", 
             "enhancement"
         ], 
         "y": [
@@ -155,27 +175,7 @@
             0, 
             1, 
             1, 
-            0, 
-            0
-        ]
-    }, 
-    {
-        "name": "PoliticalBackStabbing", 
-        "type": "bar", 
-        "x": [
-            "major", 
-            "minor", 
-            "normal", 
-            "critical", 
-            "blocker", 
-            "enhancement"
-        ], 
-        "y": [
-            0, 
-            0, 
-            2, 
             1, 
-            0, 
             0
         ]
     }, 
@@ -185,17 +185,17 @@
         "x": [
             "major", 
             "minor", 
-            "normal", 
             "critical", 
             "blocker", 
+            "normal", 
             "enhancement"
         ], 
         "y": [
             0, 
             0, 
-            2, 
             1, 
             0, 
+            2, 
             0
         ]
     }, 
@@ -205,17 +205,17 @@
         "x": [
             "major", 
             "minor", 
-            "normal", 
             "critical", 
             "blocker", 
+            "normal", 
             "enhancement"
         ], 
         "y": [
             0, 
             0, 
+            0, 
+            0, 
             1, 
-            0, 
-            0, 
             0
         ]
     }, 
@@ -225,17 +225,17 @@
         "x": [
             "major", 
             "minor", 
-            "normal", 
             "critical", 
             "blocker", 
+            "normal", 
             "enhancement"
         ], 
         "y": [
-            0, 
+            2, 
             0, 
             1, 
             0, 
-            0, 
+            10, 
             0
         ]
     }, 
@@ -245,17 +245,17 @@
         "x": [
             "major", 
             "minor", 
-            "normal", 
             "critical", 
             "blocker", 
+            "normal", 
             "enhancement"
         ], 
         "y": [
             0, 
             0, 
             1, 
-            1, 
             0, 
+            1, 
             0
         ]
     }, 
@@ -265,9 +265,9 @@
         "x": [
             "major", 
             "minor", 
-            "normal", 
             "critical", 
             "blocker", 
+            "normal", 
             "enhancement"
         ], 
         "y": [
@@ -285,17 +285,17 @@
         "x": [
             "major", 
             "minor", 
-            "normal", 
             "critical", 
             "blocker", 
+            "normal", 
             "enhancement"
         ], 
         "y": [
             0, 
             0, 
             0, 
-            0, 
             1, 
+            0, 
             0
         ]
     }
