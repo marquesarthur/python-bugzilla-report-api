@@ -6,12 +6,16 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
     <meta name="description" content="BUG Report">
+    <link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Roboto:300,400,500,700" type="text/css">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.0-rc.0/angular.min.js"></script>
     <script src="https://code.angularjs.org/1.5.0-rc.0/angular-animate.js"></script>
     <script src="https://code.angularjs.org/1.5.0-rc.0/angular-route.js"></script>
     <script src="https://code.angularjs.org/1.5.0-rc.0/angular-resource.js"></script>
+    <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+    <script src="smart-table.min.js"></script>
     <script src="app.js"></script>
 </head>
 
@@ -23,7 +27,94 @@
             </div>
         </div>
     </nav>
+    <br>
+    <br>
+    <br>
     <div id="report-body" data-ng-controller="ReportController as reportCtrl">
+        <h3 style="text-align: center;">Bug's backlog per day</h3>
+        <div class="row" data-ng-if="!loading()">
+            <div class="col-md-offset-1 col-md-5" data-ng-init="backlogChart()">
+                <br>
+                <br>
+                <br>
+                <br>
+                <table st-table="backlogData()" class="table table-striped">
+                    <thead>
+                        <tr>
+                            <th>Bug Status</th>
+                            <th st-sort="total">Total</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr ng-repeat="row in backlogData()">
+                            <td>{{row.bugStatus}}</td>
+                            <td>{{row.total}}</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            <div class="col-md-6">
+                <div id="bug-backlog-chart"></div>
+            </div>
+        </div>
+        <hr>
+        <h3 style="text-align: center;">Bug per component grouped by severities</h3>
+        <div class="row" data-ng-if="!loading()">
+            <div class="col-md-offset-1 col-md-5" data-ng-init="componentChart()">
+                <br>
+                <br>
+                <br>
+                <br>
+                <table st-table="componentData()" class="table table-striped">
+                    <thead>
+                        <tr>
+                            <th st-sort="component">Component</th>
+                            <th ng-repeat="severity in severities()">{{severity}}</th>
+                            <th st-sort="total">Total</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr ng-repeat="row in componentData()">
+                            <td>{{row.component}}</td>
+                            <td ng-repeat="value in row.values track by $index">{{value}}</td>
+                            <td>{{row.total}}</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            <div class="col-md-6">
+                <div id="bug-component-chart"></div>
+            </div>
+        </div>
+        <hr>
+        <h3 style="text-align: center;">Bug per assignee grouped by resolution</h3>
+        <div class="row" data-ng-if="!loading()">
+            <div class="col-md-offset-1 col-md-5" >
+                <br>
+                <br>
+                <br>
+                <br>
+                <table st-table="assigneeData()" class="table table-striped">
+                    <thead>
+                        <tr>
+                            <th st-sort="name">Assignee</th>
+                            <th ng-repeat="resolution in assigneeResolutions()">{{resolution}}</th>
+                            <th st-sort="total">Total</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr ng-repeat="row in assigneeData()">
+                            <td>{{row.name}}</td>
+                            <td ng-repeat="value in row.values track by $index">{{value}}</td>
+                            <td>{{row.total}}</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            <div class="col-md-6" data-ng-init="assigneeChart()">
+                <div id="bug-assignee-chart"></div>
+            </div>
+        </div>
     </div>
     <div id="report-footer" class="container-fluid">
         <hr>

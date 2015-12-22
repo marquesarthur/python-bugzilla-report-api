@@ -1,0 +1,10 @@
+resolutions_callback([
+    "FIXED", 
+    "INVALID", 
+    "WONTFIX", 
+    "LATER", 
+    "REMIND", 
+    "DUPLICATE", 
+    "WORKSFORME", 
+    "MOVED"
+]);

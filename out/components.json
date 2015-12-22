@@ -1,4 +1,4 @@
-[
+component_callback([
     {
         "name": "SpiceDispenser", 
         "type": "bar", 
@@ -8,14 +8,16 @@
             "critical", 
             "blocker", 
             "normal", 
+            "trivial", 
             "enhancement"
         ], 
         "y": [
             2, 
-            0, 
             1, 
+            2, 
             0, 
             3, 
+            0, 
             0
         ]
     }, 
@@ -28,14 +30,16 @@
             "critical", 
             "blocker", 
             "normal", 
+            "trivial", 
             "enhancement"
         ], 
         "y": [
             1, 
             4, 
-            2, 
+            4, 
             0, 
-            3, 
+            8, 
+            0, 
             0
         ]
     }, 
@@ -48,15 +52,39 @@
             "critical", 
             "blocker", 
             "normal", 
+            "trivial", 
             "enhancement"
         ], 
         "y": [
+            3, 
+            1, 
+            4, 
+            1, 
+            13, 
+            0, 
+            1
+        ]
+    }, 
+    {
+        "name": "renamed component", 
+        "type": "bar", 
+        "x": [
+            "major", 
+            "minor", 
+            "critical", 
+            "blocker", 
+            "normal", 
+            "trivial", 
+            "enhancement"
+        ], 
+        "y": [
+            1, 
+            2, 
+            2, 
+            4, 
             2, 
             0, 
-            0, 
-            1, 
-            10, 
-            1
+            0
         ]
     }, 
     {
@@ -68,14 +96,16 @@
             "critical", 
             "blocker", 
             "normal", 
+            "trivial", 
             "enhancement"
         ], 
         "y": [
             0, 
             0, 
-            1, 
-            1, 
             2, 
+            3, 
+            3, 
+            0, 
             0
         ]
     }, 
@@ -88,14 +118,16 @@
             "critical", 
             "blocker", 
             "normal", 
+            "trivial", 
             "enhancement"
         ], 
         "y": [
             3, 
             0, 
-            10, 
+            13, 
             4, 
-            15, 
+            23, 
+            0, 
             0
         ]
     }, 
@@ -108,34 +140,16 @@
             "critical", 
             "blocker", 
             "normal", 
+            "trivial", 
             "enhancement"
         ], 
         "y": [
+            7, 
+            1, 
             5, 
-            1, 
-            2, 
             0, 
-            6, 
-            0
-        ]
-    }, 
-    {
-        "name": "comp2", 
-        "type": "bar", 
-        "x": [
-            "major", 
-            "minor", 
-            "critical", 
-            "blocker", 
-            "normal", 
-            "enhancement"
-        ], 
-        "y": [
+            45, 
             1, 
-            0, 
-            1, 
-            0, 
-            2, 
             0
         ]
     }, 
@@ -148,19 +162,21 @@
             "critical", 
             "blocker", 
             "normal", 
+            "trivial", 
             "enhancement"
         ], 
         "y": [
             1, 
             0, 
             2, 
+            1, 
+            7, 
             0, 
-            4, 
             0
         ]
     }, 
     {
-        "name": "Comp1", 
+        "name": "comp2", 
         "type": "bar", 
         "x": [
             "major", 
@@ -168,74 +184,16 @@
             "critical", 
             "blocker", 
             "normal", 
+            "trivial", 
             "enhancement"
         ], 
         "y": [
-            0, 
-            0, 
             1, 
-            1, 
-            1, 
-            0
-        ]
-    }, 
-    {
-        "name": "renamed component", 
-        "type": "bar", 
-        "x": [
-            "major", 
-            "minor", 
-            "critical", 
-            "blocker", 
-            "normal", 
-            "enhancement"
-        ], 
-        "y": [
-            0, 
             0, 
             1, 
             0, 
-            2, 
-            0
-        ]
-    }, 
-    {
-        "name": "Venom", 
-        "type": "bar", 
-        "x": [
-            "major", 
-            "minor", 
-            "critical", 
-            "blocker", 
-            "normal", 
-            "enhancement"
-        ], 
-        "y": [
+            3, 
             0, 
-            0, 
-            0, 
-            0, 
-            1, 
-            0
-        ]
-    }, 
-    {
-        "name": "Salt II", 
-        "type": "bar", 
-        "x": [
-            "major", 
-            "minor", 
-            "critical", 
-            "blocker", 
-            "normal", 
-            "enhancement"
-        ], 
-        "y": [
-            2, 
-            0, 
-            1, 
-            0, 
-            10, 
             0
         ]
     }, 
@@ -248,13 +206,81 @@
             "critical", 
             "blocker", 
             "normal", 
+            "trivial", 
+            "enhancement"
+        ], 
+        "y": [
+            0, 
+            1, 
+            2, 
+            0, 
+            3, 
+            0, 
+            0
+        ]
+    }, 
+    {
+        "name": "Comp1", 
+        "type": "bar", 
+        "x": [
+            "major", 
+            "minor", 
+            "critical", 
+            "blocker", 
+            "normal", 
+            "trivial", 
+            "enhancement"
+        ], 
+        "y": [
+            1, 
+            0, 
+            1, 
+            1, 
+            2, 
+            0, 
+            0
+        ]
+    }, 
+    {
+        "name": "Venom", 
+        "type": "bar", 
+        "x": [
+            "major", 
+            "minor", 
+            "critical", 
+            "blocker", 
+            "normal", 
+            "trivial", 
             "enhancement"
         ], 
         "y": [
             0, 
             0, 
-            1, 
             0, 
+            0, 
+            7, 
+            0, 
+            0
+        ]
+    }, 
+    {
+        "name": "Salt II", 
+        "type": "bar", 
+        "x": [
+            "major", 
+            "minor", 
+            "critical", 
+            "blocker", 
+            "normal", 
+            "trivial", 
+            "enhancement"
+        ], 
+        "y": [
+            3, 
+            0, 
+            2, 
+            0, 
+            37, 
             1, 
             0
         ]
@@ -268,10 +294,12 @@
             "critical", 
             "blocker", 
             "normal", 
+            "trivial", 
             "enhancement"
         ], 
         "y": [
             1, 
+            0, 
             0, 
             0, 
             0, 
@@ -288,6 +316,7 @@
             "critical", 
             "blocker", 
             "normal", 
+            "trivial", 
             "enhancement"
         ], 
         "y": [
@@ -296,7 +325,8 @@
             0, 
             1, 
             0, 
+            0, 
             0
         ]
     }
-]
+]);

@@ -1,4 +1,4 @@
-[
+assignee_callback([
     {
         "name": "tara", 
         "type": "bar", 
@@ -9,8 +9,8 @@
         ], 
         "y": [
             1, 
-            26, 
-            1
+            79, 
+            2
         ]
     }, 
     {
@@ -23,8 +23,22 @@
         ], 
         "y": [
             0, 
-            16, 
-            1
+            22, 
+            2
+        ]
+    }, 
+    {
+        "name": "mybutt", 
+        "type": "bar", 
+        "x": [
+            "VERIFIED", 
+            "CONFIRMED", 
+            "RESOLVED"
+        ], 
+        "y": [
+            0, 
+            3, 
+            4
         ]
     }, 
     {
@@ -70,20 +84,6 @@
         ]
     }, 
     {
-        "name": "tara", 
-        "type": "bar", 
-        "x": [
-            "VERIFIED", 
-            "CONFIRMED", 
-            "RESOLVED"
-        ], 
-        "y": [
-            0, 
-            3, 
-            1
-        ]
-    }, 
-    {
         "name": "sam.folkwilliams", 
         "type": "bar", 
         "x": [
@@ -93,12 +93,12 @@
         ], 
         "y": [
             1, 
-            15, 
+            25, 
             8
         ]
     }, 
     {
-        "name": "mybutt", 
+        "name": "tara", 
         "type": "bar", 
         "x": [
             "VERIFIED", 
@@ -107,7 +107,7 @@
         ], 
         "y": [
             0, 
-            1, 
+            4, 
             1
         ]
     }, 
@@ -121,7 +121,7 @@
         ], 
         "y": [
             0, 
-            3, 
+            6, 
             0
         ]
     }, 
@@ -149,7 +149,7 @@
         ], 
         "y": [
             0, 
-            9, 
+            33, 
             0
         ]
     }, 
@@ -168,7 +168,105 @@
         ]
     }, 
     {
+        "name": "alexanderlittler56", 
+        "type": "bar", 
+        "x": [
+            "VERIFIED", 
+            "CONFIRMED", 
+            "RESOLVED"
+        ], 
+        "y": [
+            0, 
+            2, 
+            0
+        ]
+    }, 
+    {
+        "name": "h3594", 
+        "type": "bar", 
+        "x": [
+            "VERIFIED", 
+            "CONFIRMED", 
+            "RESOLVED"
+        ], 
+        "y": [
+            0, 
+            2, 
+            0
+        ]
+    }, 
+    {
+        "name": "h9731", 
+        "type": "bar", 
+        "x": [
+            "VERIFIED", 
+            "CONFIRMED", 
+            "RESOLVED"
+        ], 
+        "y": [
+            0, 
+            1, 
+            0
+        ]
+    }, 
+    {
+        "name": "salmio.otto", 
+        "type": "bar", 
+        "x": [
+            "VERIFIED", 
+            "CONFIRMED", 
+            "RESOLVED"
+        ], 
+        "y": [
+            0, 
+            1, 
+            0
+        ]
+    }, 
+    {
+        "name": "ahorse", 
+        "type": "bar", 
+        "x": [
+            "VERIFIED", 
+            "CONFIRMED", 
+            "RESOLVED"
+        ], 
+        "y": [
+            0, 
+            1, 
+            0
+        ]
+    }, 
+    {
+        "name": "rohit24marathe", 
+        "type": "bar", 
+        "x": [
+            "VERIFIED", 
+            "CONFIRMED", 
+            "RESOLVED"
+        ], 
+        "y": [
+            0, 
+            1, 
+            0
+        ]
+    }, 
+    {
         "name": "cyeh", 
+        "type": "bar", 
+        "x": [
+            "VERIFIED", 
+            "CONFIRMED", 
+            "RESOLVED"
+        ], 
+        "y": [
+            0, 
+            0, 
+            1
+        ]
+    }, 
+    {
+        "name": "souhucla", 
         "type": "bar", 
         "x": [
             "VERIFIED", 
@@ -224,6 +322,48 @@
         ]
     }, 
     {
+        "name": "rovecrew", 
+        "type": "bar", 
+        "x": [
+            "VERIFIED", 
+            "CONFIRMED", 
+            "RESOLVED"
+        ], 
+        "y": [
+            0, 
+            0, 
+            2
+        ]
+    }, 
+    {
+        "name": "andriy.halakh26", 
+        "type": "bar", 
+        "x": [
+            "VERIFIED", 
+            "CONFIRMED", 
+            "RESOLVED"
+        ], 
+        "y": [
+            0, 
+            0, 
+            2
+        ]
+    }, 
+    {
+        "name": "j537737", 
+        "type": "bar", 
+        "x": [
+            "VERIFIED", 
+            "CONFIRMED", 
+            "RESOLVED"
+        ], 
+        "y": [
+            0, 
+            0, 
+            3
+        ]
+    }, 
+    {
         "name": "vivienne.lewis", 
         "type": "bar", 
         "x": [
@@ -251,4 +391,4 @@
             0
         ]
     }
-]
+]);

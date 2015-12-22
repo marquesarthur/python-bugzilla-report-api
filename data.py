@@ -20,6 +20,16 @@ BUG_STATUS_FIELD_NAME = 'bug_status'
 
 BUG_RESOLUTION_FIELD_NAME = 'resolution'
 
+BACKLOG_CALLBACK = 'backlog_callback'
+
+ASSIGNEES_CALLBACK = 'assignee_callback'
+
+COMPONENTS_CALLBACK = 'component_callback'
+
+STATUS_CALLBACK = 'status_callback'
+
+RESOLUTION_CALLBACK = 'resolutions_callback'
+
 class DataJSONEncoder(json.JSONEncoder):
 
   def default(self, obj):
@@ -145,6 +155,15 @@ class Bugzilla:
     print '>>>>>> %s Bugs retrieved' %(len(bugs['bugs']))
     return bugs['bugs']
 
+  def writeOutput(self, filePath, jsonData, callback):
+    """ Write a json callback function to some file output path """
+    with open(filePath, 'w') as outfile:
+      jsonDump = json.dumps(jsonData, cls=DataJSONEncoder, indent=4, sort_keys=True)
+      callback = callback + '(' + jsonDump + ');'
+      outfile.write(callback)
+
+      print '>>> output at  %s ' %(filePath)
+
   def extractData(self, params):
     """ Extracts from the bugzilla server the necessary data in oder to build a meaningful bug report """
 
@@ -161,21 +180,15 @@ class Bugzilla:
     backlog = Backlog(self.status, self.resolutions, self.bugs)
     backlogData = backlog.extractBugsPerDay()
     
-    with open('out/backlog.json', 'w') as outfile:
-      json.dump(backlogData, outfile, cls=DataJSONEncoder, indent=4, sort_keys=True)
-    print '>>> output at  ::  out/backlog.json'
-
     components = Component(self.status, self.resolutions, self.bugs)
     componentsData = components.extractBugsPerComponent()
-
-    with open('out/components.json', 'w') as outfile:
-      json.dump(componentsData, outfile, cls=DataJSONEncoder, indent=4, sort_keys=True)
-    print '>>> output at  ::  out/components.json'
 
     assignees = Assignee(self.status, self.resolutions, self.bugs)
     assigneesData = assignees.extractBugsPerAssignee()
 
-    with open('out/assignees.json', 'w') as outfile:
-      json.dump(assigneesData, outfile, cls=DataJSONEncoder, indent=4, sort_keys=True)
-    print '>>> output at  ::  out/assignees.json'
+    self.writeOutput('out/backlog.json', backlogData, BACKLOG_CALLBACK)
+    self.writeOutput('out/components.json', componentsData, COMPONENTS_CALLBACK)
+    self.writeOutput('out/assignees.json', assigneesData, ASSIGNEES_CALLBACK)
+    self.writeOutput('out/status.json', self.status, STATUS_CALLBACK)
+    self.writeOutput('out/resolutions.json', self.resolutions, RESOLUTION_CALLBACK)
 
