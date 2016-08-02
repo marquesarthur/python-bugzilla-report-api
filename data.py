@@ -2,6 +2,8 @@ import json
 import requests
 import datetime
 import time
+import sys
+import re
 import plotly.plotly as py
 import plotly.graph_objs as graph
 
@@ -14,6 +16,9 @@ from bug_developers import Assignee
 
 REST = '/rest'
 
+DATE_REGEX='^(19|20)\d\d[- /.](0[1-9]|1[012])[- /.](0[1-9]|[12][0-9]|3[01])$'
+DATE_PATTERN = re.compile(DATE_REGEX)
+
 INCLUDE_FIELDS = '&include_fields=id,component,classification,creation_time,last_change_time,is_open,priority,severity,status,summary,assigned_to,resolution'
 
 BUG_STATUS_FIELD_NAME = 'bug_status'
@@ -22,7 +27,11 @@ BUG_RESOLUTION_FIELD_NAME = 'resolution'
 
 BACKLOG_CALLBACK = 'backlog_callback'
 
-ASSIGNEES_CALLBACK = 'assignee_callback'
+ASSIGNEES_STATUS_CALLBACK = 'assignee_status_callback'
+
+ASSIGNEES_RESOLUTION_CALLBACK = 'assignee_resolution_callback'
+
+DETAILS_CALLBACK = 'assignees_details_callback'
 
 COMPONENTS_CALLBACK = 'component_callback'
 
@@ -62,6 +71,7 @@ class Bugzilla:
     self.uri = uri + REST
     self.loggedIn = False
     self.loginInfo = None
+    self.from_date = None
     self.status = []
     self.resolutions = []
     self.bugs = {'all' : []}
@@ -97,6 +107,7 @@ class Bugzilla:
 
     return fieldInfo
 
+  # Retrive all availables status of 'resolution' of a bug
   def setBugResolutions(self, resolutionList):
     """ Set the bug resoluntions values """
     for resolution in resolutionList['fields'][0]['values']:
@@ -107,6 +118,7 @@ class Bugzilla:
 
     print '>>> REPOSITORY BUG RESOLUTIONS :: %s' %(self.resolutions)
 
+  # Retrive all availables status of 'bug_status' of a bug  
   def setBugStatus(self, statusList):
     """ Set the bug statuses values """
     for status in statusList['fields'][0]['values']:
@@ -117,7 +129,7 @@ class Bugzilla:
         self.bugs.update({name : []})
 
     print '>>> REPOSITORY STATUSES :: %s' %(self.status)
-
+  
   def getIncludedFields(self):
     """ Get the list of fields to be extracted from the bug info """
     return INCLUDE_FIELDS
@@ -167,8 +179,29 @@ class Bugzilla:
   def extractData(self, params):
     """ Extracts from the bugzilla server the necessary data in oder to build a meaningful bug report """
 
-    print params
-    currentDate = datetime.date(date.today().year, date.today().month, 01)
+    if len(sys.argv) > 1 and DATE_PATTERN.match(sys.argv[1]):
+      complete_date = sys.argv[1].split("-")
+      year = int(complete_date[0])
+      month = int(complete_date[1])
+      day = int(complete_date[2])
+    else:
+      print "Please, inform from which date you want to collect bugs:"
+      year = raw_input("Year: ("+str(date.today().year)+") ")
+      month = raw_input("Month: ("+str(date.today().month)+") ")
+      day = raw_input("Day: ("+str(date.today().day)+") ")
+      if year == "": 
+        year = date.today().year
+      else: year = int(year)
+      if month == "":
+        month = date.today().month
+      else: month = int(month)
+      if day == "":
+        day = date.today().day
+      else: day = int(day)
+
+    self.from_date = (year, month, day)
+
+    currentDate = datetime.date(year, month, day)
     dateParam = currentDate.strftime('%Y-%m-%d')
 
     for status in self.status:
@@ -177,18 +210,20 @@ class Bugzilla:
       self.bugs['all'].extend(bugs)
       
 
-    backlog = Backlog(self.status, self.resolutions, self.bugs)
+    backlog = Backlog(self.status, self.resolutions, self.bugs, self.from_date)
     backlogData = backlog.extractBugsPerDay()
     
     components = Component(self.status, self.resolutions, self.bugs)
     componentsData = components.extractBugsPerComponent()
 
     assignees = Assignee(self.status, self.resolutions, self.bugs)
-    assigneesData = assignees.extractBugsPerAssignee()
+    assigneesStatusData = assignees.extractBugsPerAssigneePerStatus()
+    assigneesResolutionData = assignees.extractBugsPerStatusPerResolution()
 
     self.writeOutput('out/backlog.json', backlogData, BACKLOG_CALLBACK)
     self.writeOutput('out/components.json', componentsData, COMPONENTS_CALLBACK)
-    self.writeOutput('out/assignees.json', assigneesData, ASSIGNEES_CALLBACK)
+    self.writeOutput('out/assignees_status.json', assigneesStatusData, ASSIGNEES_STATUS_CALLBACK)
+    self.writeOutput('out/assignees_resolution.json', assigneesResolutionData, ASSIGNEES_RESOLUTION_CALLBACK)
     self.writeOutput('out/status.json', self.status, STATUS_CALLBACK)
     self.writeOutput('out/resolutions.json', self.resolutions, RESOLUTION_CALLBACK)
 

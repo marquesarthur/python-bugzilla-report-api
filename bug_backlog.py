@@ -9,10 +9,11 @@ from pprint import pprint
 
 class Backlog:
 
-  def __init__(self, status, resolutions, bugs):
+  def __init__(self, status, resolutions, bugs, from_date):
     self.status = status
     self.resolutions = resolutions
     self.bugs = bugs
+    self.from_date = from_date
 
   def countBugsOfDay(self, day, bugs):
     """ Count the number of bugs on a day """
@@ -31,10 +32,10 @@ class Backlog:
     """
     x = [];
     y = [];
-
-    for day in range(0 , (date.today().day)):
+    print self.from_date
+    for day in range(0 , self.from_date[2]):
       # get the current day of the month
-      currentDay = datetime.date(date.today().year, date.today().month, (day + 1))
+      currentDay = datetime.date(self.from_date[0], self.from_date[1], (day + 1))
       x.append(currentDay)
 
       # get the number of bugs in that day

@@ -6,5 +6,6 @@ resolutions_callback([
     "REMIND", 
     "DUPLICATE", 
     "WORKSFORME", 
-    "MOVED"
+    "MOVED", 
+    "NONE"
 ]);
