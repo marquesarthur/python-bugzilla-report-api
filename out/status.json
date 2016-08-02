@@ -1,7 +1,9 @@
 status_callback([
     "UNCONFIRMED", 
-    "CONFIRMED", 
-    "IN_PROGRESS", 
+    "NEW", 
+    "ASSIGNED", 
+    "REJECTED", 
     "RESOLVED", 
-    "VERIFIED"
+    "CLOSED", 
+    "REOPENED"
 ]);

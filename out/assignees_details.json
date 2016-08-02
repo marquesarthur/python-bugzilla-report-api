@@ -1,0 +1,16 @@
+assignees_details_callback({
+    "julio.leitao.jr@gmail.com": {
+        "ASSIGNED": {
+            "NONE": [
+                "542"
+            ]
+        }
+    }, 
+    "root@splab.ufcg.edu.br": {
+        "NEW": {
+            "NONE": [
+                "670"
+            ]
+        }
+    }
+});

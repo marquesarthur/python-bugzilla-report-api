@@ -1,0 +1,302 @@
+assignee_resolution_callback([
+    {
+        "name": "julio.leitao.jr_ASSIGNED", 
+        "type": "bar", 
+        "x": [
+            "FIXED", 
+            "INVALID", 
+            "WONTFIX", 
+            "DUPLICATE", 
+            "WORKSFORME", 
+            "NONE"
+        ], 
+        "y": [
+            0, 
+            0, 
+            0, 
+            0, 
+            0, 
+            1
+        ]
+    }, 
+    {
+        "name": "reh.nally_ASSIGNED", 
+        "type": "bar", 
+        "x": [
+            "FIXED", 
+            "INVALID", 
+            "WONTFIX", 
+            "DUPLICATE", 
+            "WORKSFORME", 
+            "NONE"
+        ], 
+        "y": [
+            0, 
+            0, 
+            0, 
+            0, 
+            0, 
+            1
+        ]
+    }, 
+    {
+        "name": "bruno.bjdo_NEW", 
+        "type": "bar", 
+        "x": [
+            "FIXED", 
+            "INVALID", 
+            "WONTFIX", 
+            "DUPLICATE", 
+            "WORKSFORME", 
+            "NONE"
+        ], 
+        "y": [
+            0, 
+            0, 
+            0, 
+            0, 
+            0, 
+            1
+        ]
+    }, 
+    {
+        "name": "iisabelly.cavalcante_RESOLVED", 
+        "type": "bar", 
+        "x": [
+            "FIXED", 
+            "INVALID", 
+            "WONTFIX", 
+            "DUPLICATE", 
+            "WORKSFORME", 
+            "NONE"
+        ], 
+        "y": [
+            1, 
+            0, 
+            0, 
+            0, 
+            0, 
+            0
+        ]
+    }, 
+    {
+        "name": "iisabelly.cavalcante_ASSIGNED", 
+        "type": "bar", 
+        "x": [
+            "FIXED", 
+            "INVALID", 
+            "WONTFIX", 
+            "DUPLICATE", 
+            "WORKSFORME", 
+            "NONE"
+        ], 
+        "y": [
+            0, 
+            0, 
+            0, 
+            0, 
+            0, 
+            1
+        ]
+    }, 
+    {
+        "name": "joopeeds_ASSIGNED", 
+        "type": "bar", 
+        "x": [
+            "FIXED", 
+            "INVALID", 
+            "WONTFIX", 
+            "DUPLICATE", 
+            "WORKSFORME", 
+            "NONE"
+        ], 
+        "y": [
+            0, 
+            0, 
+            0, 
+            0, 
+            0, 
+            2
+        ]
+    }, 
+    {
+        "name": "mayzabeel_RESOLVED", 
+        "type": "bar", 
+        "x": [
+            "FIXED", 
+            "INVALID", 
+            "WONTFIX", 
+            "DUPLICATE", 
+            "WORKSFORME", 
+            "NONE"
+        ], 
+        "y": [
+            1, 
+            0, 
+            0, 
+            0, 
+            0, 
+            0
+        ]
+    }, 
+    {
+        "name": "root_RESOLVED", 
+        "type": "bar", 
+        "x": [
+            "FIXED", 
+            "INVALID", 
+            "WONTFIX", 
+            "DUPLICATE", 
+            "WORKSFORME", 
+            "NONE"
+        ], 
+        "y": [
+            0, 
+            1, 
+            0, 
+            0, 
+            0, 
+            0
+        ]
+    }, 
+    {
+        "name": "root_NEW", 
+        "type": "bar", 
+        "x": [
+            "FIXED", 
+            "INVALID", 
+            "WONTFIX", 
+            "DUPLICATE", 
+            "WORKSFORME", 
+            "NONE"
+        ], 
+        "y": [
+            0, 
+            0, 
+            0, 
+            0, 
+            0, 
+            4
+        ]
+    }, 
+    {
+        "name": "joseiago.p.a_RESOLVED", 
+        "type": "bar", 
+        "x": [
+            "FIXED", 
+            "INVALID", 
+            "WONTFIX", 
+            "DUPLICATE", 
+            "WORKSFORME", 
+            "NONE"
+        ], 
+        "y": [
+            1, 
+            0, 
+            0, 
+            0, 
+            0, 
+            0
+        ]
+    }, 
+    {
+        "name": "estacio.pereira_RESOLVED", 
+        "type": "bar", 
+        "x": [
+            "FIXED", 
+            "INVALID", 
+            "WONTFIX", 
+            "DUPLICATE", 
+            "WORKSFORME", 
+            "NONE"
+        ], 
+        "y": [
+            1, 
+            0, 
+            0, 
+            0, 
+            0, 
+            0
+        ]
+    }, 
+    {
+        "name": "estacio.pereira_ASSIGNED", 
+        "type": "bar", 
+        "x": [
+            "FIXED", 
+            "INVALID", 
+            "WONTFIX", 
+            "DUPLICATE", 
+            "WORKSFORME", 
+            "NONE"
+        ], 
+        "y": [
+            0, 
+            0, 
+            0, 
+            0, 
+            0, 
+            1
+        ]
+    }, 
+    {
+        "name": "robertomlsoares_RESOLVED", 
+        "type": "bar", 
+        "x": [
+            "FIXED", 
+            "INVALID", 
+            "WONTFIX", 
+            "DUPLICATE", 
+            "WORKSFORME", 
+            "NONE"
+        ], 
+        "y": [
+            3, 
+            0, 
+            0, 
+            0, 
+            0, 
+            0
+        ]
+    }, 
+    {
+        "name": "analuizamtg_RESOLVED", 
+        "type": "bar", 
+        "x": [
+            "FIXED", 
+            "INVALID", 
+            "WONTFIX", 
+            "DUPLICATE", 
+            "WORKSFORME", 
+            "NONE"
+        ], 
+        "y": [
+            1, 
+            0, 
+            0, 
+            0, 
+            0, 
+            0
+        ]
+    }, 
+    {
+        "name": "analuizamtg_ASSIGNED", 
+        "type": "bar", 
+        "x": [
+            "FIXED", 
+            "INVALID", 
+            "WONTFIX", 
+            "DUPLICATE", 
+            "WORKSFORME", 
+            "NONE"
+        ], 
+        "y": [
+            0, 
+            0, 
+            0, 
+            0, 
+            0, 
+            1
+        ]
+    }
+]);

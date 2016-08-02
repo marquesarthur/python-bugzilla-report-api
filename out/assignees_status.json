@@ -1,0 +1,244 @@
+assignee_status_callback([
+    {
+        "name": "julio.leitao.jr", 
+        "type": "bar", 
+        "x": [
+            "UNCONFIRMED", 
+            "NEW", 
+            "ASSIGNED", 
+            "REJECTED", 
+            "RESOLVED", 
+            "CLOSED", 
+            "REOPENED"
+        ], 
+        "y": [
+            0, 
+            0, 
+            1, 
+            0, 
+            0, 
+            0, 
+            0
+        ]
+    }, 
+    {
+        "name": "reh.nally", 
+        "type": "bar", 
+        "x": [
+            "UNCONFIRMED", 
+            "NEW", 
+            "ASSIGNED", 
+            "REJECTED", 
+            "RESOLVED", 
+            "CLOSED", 
+            "REOPENED"
+        ], 
+        "y": [
+            0, 
+            0, 
+            1, 
+            0, 
+            0, 
+            0, 
+            0
+        ]
+    }, 
+    {
+        "name": "bruno.bjdo", 
+        "type": "bar", 
+        "x": [
+            "UNCONFIRMED", 
+            "NEW", 
+            "ASSIGNED", 
+            "REJECTED", 
+            "RESOLVED", 
+            "CLOSED", 
+            "REOPENED"
+        ], 
+        "y": [
+            0, 
+            1, 
+            0, 
+            0, 
+            0, 
+            0, 
+            0
+        ]
+    }, 
+    {
+        "name": "iisabelly.cavalcante", 
+        "type": "bar", 
+        "x": [
+            "UNCONFIRMED", 
+            "NEW", 
+            "ASSIGNED", 
+            "REJECTED", 
+            "RESOLVED", 
+            "CLOSED", 
+            "REOPENED"
+        ], 
+        "y": [
+            0, 
+            0, 
+            1, 
+            0, 
+            1, 
+            0, 
+            0
+        ]
+    }, 
+    {
+        "name": "joopeeds", 
+        "type": "bar", 
+        "x": [
+            "UNCONFIRMED", 
+            "NEW", 
+            "ASSIGNED", 
+            "REJECTED", 
+            "RESOLVED", 
+            "CLOSED", 
+            "REOPENED"
+        ], 
+        "y": [
+            0, 
+            0, 
+            2, 
+            0, 
+            0, 
+            0, 
+            0
+        ]
+    }, 
+    {
+        "name": "mayzabeel", 
+        "type": "bar", 
+        "x": [
+            "UNCONFIRMED", 
+            "NEW", 
+            "ASSIGNED", 
+            "REJECTED", 
+            "RESOLVED", 
+            "CLOSED", 
+            "REOPENED"
+        ], 
+        "y": [
+            0, 
+            0, 
+            0, 
+            0, 
+            1, 
+            0, 
+            0
+        ]
+    }, 
+    {
+        "name": "root", 
+        "type": "bar", 
+        "x": [
+            "UNCONFIRMED", 
+            "NEW", 
+            "ASSIGNED", 
+            "REJECTED", 
+            "RESOLVED", 
+            "CLOSED", 
+            "REOPENED"
+        ], 
+        "y": [
+            0, 
+            4, 
+            0, 
+            0, 
+            1, 
+            0, 
+            0
+        ]
+    }, 
+    {
+        "name": "joseiago.p.a", 
+        "type": "bar", 
+        "x": [
+            "UNCONFIRMED", 
+            "NEW", 
+            "ASSIGNED", 
+            "REJECTED", 
+            "RESOLVED", 
+            "CLOSED", 
+            "REOPENED"
+        ], 
+        "y": [
+            0, 
+            0, 
+            0, 
+            0, 
+            1, 
+            0, 
+            0
+        ]
+    }, 
+    {
+        "name": "estacio.pereira", 
+        "type": "bar", 
+        "x": [
+            "UNCONFIRMED", 
+            "NEW", 
+            "ASSIGNED", 
+            "REJECTED", 
+            "RESOLVED", 
+            "CLOSED", 
+            "REOPENED"
+        ], 
+        "y": [
+            0, 
+            0, 
+            1, 
+            0, 
+            1, 
+            0, 
+            0
+        ]
+    }, 
+    {
+        "name": "robertomlsoares", 
+        "type": "bar", 
+        "x": [
+            "UNCONFIRMED", 
+            "NEW", 
+            "ASSIGNED", 
+            "REJECTED", 
+            "RESOLVED", 
+            "CLOSED", 
+            "REOPENED"
+        ], 
+        "y": [
+            0, 
+            0, 
+            0, 
+            0, 
+            3, 
+            0, 
+            0
+        ]
+    }, 
+    {
+        "name": "analuizamtg", 
+        "type": "bar", 
+        "x": [
+            "UNCONFIRMED", 
+            "NEW", 
+            "ASSIGNED", 
+            "REJECTED", 
+            "RESOLVED", 
+            "CLOSED", 
+            "REOPENED"
+        ], 
+        "y": [
+            0, 
+            0, 
+            1, 
+            0, 
+            1, 
+            0, 
+            0
+        ]
+    }
+]);

@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html data-ng-app="report">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="description" content="BUG Report">
+    <link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Roboto:300,400,500,700" type="text/css">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.0-rc.0/angular.min.js"></script>
+    <script src="https://code.angularjs.org/1.5.0-rc.0/angular-animate.js"></script>
+    <script src="https://code.angularjs.org/1.5.0-rc.0/angular-route.js"></script>
+    <script src="https://code.angularjs.org/1.5.0-rc.0/angular-resource.js"></script>
+
+    <script src="node_modules/ng-dialog/js/ngDialog.min.js"></script>
+    <link rel="stylesheet" href="node_modules/ng-dialog/css/ngDialog.css">
+    <link rel="stylesheet" href="node_modules/ng-dialog/css/ngDialog-theme-default.css">
+    <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+    <script src="smart-table.min.js"></script>
+    <script src="app.js"></script>
+</head>
+
+<body>
+    <nav id="report-header" class="navbar navbar-inverse navbar-fixed-top">
+        <div class="container-fluid">
+            <div class="navbar-header">
+                <h1 style="color: #FFFFFF">BUG Report</h1>
+            </div>
+        </div>
+    </nav>
+    <br>
+    <br>
+    <br>
+    <div id="report-body" data-ng-controller="AssigneeController as assigneeCtrl">
+        <div class="row" data-ng-if="!loading()">
+            <div class="col-md-offset-1 col-md-5" >
+                <h3><b>Usuário:</b>{{ assigneeCtrl.assigneeData().username }}</h3>
+                <h3><b>Status:</b>{{ assigneeCtrl.assigneeData().status }}</h3>
+            </div>
+            <div class="col-md-6" data-ng-init="assigneeCtrl.assigneeChart()">
+                <div id="bug-single-assignee-chart"></div>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>
