@@ -4,8 +4,7 @@ import plotly.plotly as py
 import plotly.graph_objs as graph
 
 # Config
-config = {'username' : 'email_login', 'password' : '12345', 'uri' : 'https://bugzilla.org/'}
-
+config = {'username' : 'marques.art@gmail.com', 'password' : 'bugT3ster', 'uri' : 'https://landfill.bugzilla.org/bugzilla-5.0-branch'}
 
 
 # Some methods for test, at leat while I am developing the tool
