@@ -54,20 +54,20 @@ class DataJSONEncoder(json.JSONEncoder):
     return json.JSONEncoder.default(self, obj)
 
 class Bugzilla:
-  """ 
+  """
     Bugzilla data extract API.
     Get data from a bugzilla 5.0 server through its REST API
   """
 
   def __init__(self, username, password, uri):
-    """ 
-      Constructor with a username, password and uri of the bugzilla server 
+    """
+      Constructor with a username, password and uri of the bugzilla server
       After the BugzillaReport has been initialized, it will have a dictionary data-structure
       containing lists for all the opened, closed, assigned, and so forth bugs.
-      According to called methods, this dictionary is filled 
+      According to called methods, this dictionary is filled
     """
     self.username = username
-    self.password = password 
+    self.password = password
     self.uri = uri + REST
     self.loggedIn = False
     self.loginInfo = None
@@ -75,7 +75,7 @@ class Bugzilla:
     self.status = []
     self.resolutions = []
     self.bugs = {'all' : []}
-    
+
   def isLoggedIn(self):
     """ Verify if the user is logged in """
     if not self.loggedIn:
@@ -85,9 +85,14 @@ class Bugzilla:
     """ Add the token parameter to the request uri """
     return 'token=' +self.loginInfo['token']
 
+  def getRequest(self, uri):
+    # Set verify = False to disable SSL verification
+    data = requests.get(uri, verify=True)
+    return data
+
   def setUp(self):
-    """ 
-      Set up the initial data required in order to create the report 
+    """
+      Set up the initial data required in order to create the report
       Such set up includes logging in and extracting configurable bug statuses and resolutions
     """
     self.login()
@@ -102,7 +107,7 @@ class Bugzilla:
     """ Acquiring information of bugzilla fields """
     self.isLoggedIn()
     bugUri = self.uri + '/field/bug/'+ fieldName + '?' + self.getTokenParam()
-    data = requests.get(bugUri)
+    data = self.getRequest(bugUri)
     fieldInfo = json.loads(data.text)
 
     return fieldInfo
@@ -118,7 +123,7 @@ class Bugzilla:
 
     print '>>> REPOSITORY BUG RESOLUTIONS :: %s' %(self.resolutions)
 
-  # Retrive all availables status of 'bug_status' of a bug  
+  # Retrive all availables status of 'bug_status' of a bug
   def setBugStatus(self, statusList):
     """ Set the bug statuses values """
     for status in statusList['fields'][0]['values']:
@@ -129,7 +134,7 @@ class Bugzilla:
         self.bugs.update({name : []})
 
     print '>>> REPOSITORY STATUSES :: %s' %(self.status)
-  
+
   def getIncludedFields(self):
     """ Get the list of fields to be extracted from the bug info """
     return INCLUDE_FIELDS
@@ -139,7 +144,7 @@ class Bugzilla:
     print '>>> Login in'
 
     loginUri = self.uri + '/login?login=' + self.username + '&password=' +self.password
-    data = requests.get(loginUri)
+    data = self.getRequest(loginUri)
     self.loginInfo = json.loads(data.text)
 
     print '>>> Successfully logedin :: %s' %(json.dumps(self.loginInfo))
@@ -150,7 +155,7 @@ class Bugzilla:
     print '>>> Getting bug: [%s]' %(id)
     self.isLoggedIn()
     bugUri = self.uri + '/bug?id=' + str(id) + '&'+ self.getTokenParam()
-    data = requests.get(bugUri)
+    data = self.getRequest(bugUri)
     bug = json.loads(data.text)
     print '>>> Bug [%s] info' %(id)
     print json.dumps(bug, indent=4, sort_keys=True)
@@ -161,7 +166,7 @@ class Bugzilla:
 
     self.isLoggedIn()
     bugUri = self.uri + '/bug?status=' + status + '&last_change_time=' + dateParam + self.getIncludedFields() +'&'+ self.getTokenParam()
-    data = requests.get(bugUri)
+    data = self.getRequest(bugUri)
     bugs = json.loads(data.text)
 
     print '>>>>>> %s Bugs retrieved' %(len(bugs['bugs']))
@@ -189,7 +194,7 @@ class Bugzilla:
       year = raw_input("Year: ("+str(date.today().year)+") ")
       month = raw_input("Month: ("+str(date.today().month)+") ")
       day = raw_input("Day: ("+str(date.today().day)+") ")
-      if year == "": 
+      if year == "":
         year = date.today().year
       else: year = int(year)
       if month == "":
@@ -208,11 +213,11 @@ class Bugzilla:
       bugs = self.getBugs(status, dateParam)
       self.bugs[status].extend(bugs)
       self.bugs['all'].extend(bugs)
-      
+
 
     backlog = Backlog(self.status, self.resolutions, self.bugs, self.from_date)
     backlogData = backlog.extractBugsPerDay()
-    
+
     components = Component(self.status, self.resolutions, self.bugs)
     componentsData = components.extractBugsPerComponent()
 
@@ -226,4 +231,3 @@ class Bugzilla:
     self.writeOutput('out/assignees_resolution.json', assigneesResolutionData, ASSIGNEES_RESOLUTION_CALLBACK)
     self.writeOutput('out/status.json', self.status, STATUS_CALLBACK)
     self.writeOutput('out/resolutions.json', self.resolutions, RESOLUTION_CALLBACK)
-

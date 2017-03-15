@@ -7,7 +7,6 @@ import plotly.graph_objs as graph
 config = {'username' : 'marques.art@gmail.com', 'password' : 'bugT3ster', 'uri' : 'https://landfill.bugzilla.org/bugzilla-5.0-branch'}
 
 
-
 # Some methods for test, at leat while I am developing the tool
 bugzillaData = Bugzilla(config['username'], config['password'], config['uri'])
 bugzillaData.setUp()
