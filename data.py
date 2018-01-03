@@ -143,14 +143,25 @@ class Bugzilla:
     print '>>> Bug [%s] info' %(id)
     print json.dumps(bug, indent=4, sort_keys=True)
 
-  def getBugs(self, status, dateParam):
+  def getBugs(self, status, fromDate, toDate):
     """ Get bugs with a specific status in a date range """
-    print '\n>>> Getting all [%s] bugs created after [%s]' %(status, dateParam)
+    print '\n>>> Getting all [%s] bugs created from [%s] to [%s]' %(status, fromDate, toDate)
 
     self.isLoggedIn()
-    bugUri = self.uri + '/bug?status=' + status + '&last_change_time=' + dateParam + self.getIncludedFields() +'&'+ self.getTokenParam()
+    bugUri = self.uri + '/bug?status=' + status + '&chfieldfrom=' + fromDate.strftime('%Y-%m-%d') + '&chfieldto=' + fromDate.strftime('%Y-%m-%d') + '&query_format=advanced&resolution=---' + self.getIncludedFields() +'&'+ self.getTokenParam()
+
+    print "\n\n"
+    print bugUri
+
     data = requests.get(bugUri)
     bugs = json.loads(data.text)
+
+    
+    
+
+    print "\n\n\n\n"
+    print data
+    print "\n\n\n\n"
 
     print '>>>>>> %s Bugs retrieved' %(len(bugs['bugs']))
     return bugs['bugs']
@@ -164,31 +175,27 @@ class Bugzilla:
 
       print '>>> output at  %s ' %(filePath)
 
-  def extractData(self, params):
+  def extractData(self, fromDate, toDate):
     """ Extracts from the bugzilla server the necessary data in oder to build a meaningful bug report """
 
-    print params
-    currentDate = datetime.date(date.today().year, date.today().month, 01)
-    dateParam = currentDate.strftime('%Y-%m-%d')
-
     for status in self.status:
-      bugs = self.getBugs(status, dateParam)
+      bugs = self.getBugs(status, fromDate, toDate)
       self.bugs[status].extend(bugs)
       self.bugs['all'].extend(bugs)
       
 
-    backlog = Backlog(self.status, self.resolutions, self.bugs)
-    backlogData = backlog.extractBugsPerDay()
+    # backlog = Backlog(self.status, self.resolutions, self.bugs)
+    # backlogData = backlog.extractBugsPerDay()
     
-    components = Component(self.status, self.resolutions, self.bugs)
-    componentsData = components.extractBugsPerComponent()
+    # components = Component(self.status, self.resolutions, self.bugs)
+    # componentsData = components.extractBugsPerComponent()
 
-    assignees = Assignee(self.status, self.resolutions, self.bugs)
-    assigneesData = assignees.extractBugsPerAssignee()
+    # assignees = Assignee(self.status, self.resolutions, self.bugs)
+    # assigneesData = assignees.extractBugsPerAssignee()
 
-    self.writeOutput('out/backlog.json', backlogData, BACKLOG_CALLBACK)
-    self.writeOutput('out/components.json', componentsData, COMPONENTS_CALLBACK)
-    self.writeOutput('out/assignees.json', assigneesData, ASSIGNEES_CALLBACK)
-    self.writeOutput('out/status.json', self.status, STATUS_CALLBACK)
-    self.writeOutput('out/resolutions.json', self.resolutions, RESOLUTION_CALLBACK)
+    # self.writeOutput('out/backlog.json', backlogData, BACKLOG_CALLBACK)
+    # self.writeOutput('out/components.json', componentsData, COMPONENTS_CALLBACK)
+    # self.writeOutput('out/assignees.json', assigneesData, ASSIGNEES_CALLBACK)
+    # self.writeOutput('out/status.json', self.status, STATUS_CALLBACK)
+    # self.writeOutput('out/resolutions.json', self.resolutions, RESOLUTION_CALLBACK)
 
