@@ -1,0 +1,15 @@
+{
+  "name": "bugzilla-report",
+  "version": "1.0.0",
+  "description": "A tool for analyzing data of bugs in Bugzilla",
+  "main": "app.js",
+  "dependencies": {
+    "ng-dialog": "^0.6.2"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Arthur Marques",
+  "license": "ISC"
+}

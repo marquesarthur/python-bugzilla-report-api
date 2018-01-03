@@ -2,11 +2,14 @@
 
 var App = angular.module('report', [
     'ngRoute',
-    'smart-table'
+    'smart-table',
+    'ngDialog'
 ]);
 
 App.service('ReportService', function($http, $q) {
     var self = this;
+
+    this.singleAssignee = undefined;
 
     this.backlog = undefined;
 
@@ -29,9 +32,14 @@ App.service('ReportService', function($http, $q) {
         console.log(self.backlog);
     };
 
-    window.assignee_callback = function(data) {
+    window.assignee_status_callback = function(data) {
         self.assignee = data;
         console.log(self.assignee);
+    };
+    
+    window.assignee_resolution_callback = function(data) {
+        self.assignee_resolution = data;
+        console.log(self.assignee_resolution);
     };
 
     window.component_callback = function(data) {
@@ -61,8 +69,12 @@ App.service('ReportService', function($http, $q) {
         return this.getJsonFile('../out/components.json?callback=JSON_CALLBACK');;
     };
 
-    this.getAssignee = function() {
-        return this.getJsonFile('../out/assignees.json?callback=JSON_CALLBACK');
+    this.getAssigneeStatus = function() {
+        return this.getJsonFile('../out/assignees_status.json?callback=JSON_CALLBACK');
+    };
+
+    this.getAssigneeResolution = function() {
+        return this.getJsonFile('../out/assignees_resolution.json?callback=JSON_CALLBACK');
     };
 
     this.getResolutions = function() {
@@ -76,7 +88,8 @@ App.service('ReportService', function($http, $q) {
     this.extractData = function() {
         this.getBacklog();
         this.getComponent();
-        this.getAssignee();
+        this.getAssigneeStatus();
+        this.getAssigneeResolution();
         this.getStatus();
         this.getResolutions();
     };
@@ -113,6 +126,19 @@ App.service('ReportService', function($http, $q) {
         }
         self.backlogData = data;
         console.log(self.backlogData);
+    };
+
+    this.extractAssigneeResolutionData = function(mapKey) {
+        console.log(">>>> extractAsigneeResolutionData");
+        var data = [];
+
+        for (var i = 0; i < self.assignee_resolution.length; i++) {
+            var name = self.assignee_resolution[i].name;
+            if (mapKey === name){
+                self.singleAssignee = self.assignee_resolution[i];
+            }
+        }
+        return undefined;
     };
 
     this.extractAssigneeData = function() {
@@ -154,9 +180,28 @@ App.service('ReportService', function($http, $q) {
         self.componentData = data;
         console.log(self.componentData);
     };
-});
 
-App.controller('ReportController', function($scope, $http, $q, ReportService) {
+});
+App.controller('AssigneeController', function($scope, ReportService){
+    var self = this;
+
+    this.assignee = ReportService.singleAssignee;
+
+    this.assigneeChart = function(){
+        var lista = [];
+        lista.push(self.assignee)
+        Plotly.newPlot('bug-single-assignee-chart', lista);
+    };
+    
+    this.assigneeData = function(){
+        var data = {};
+        var user_status = self.assignee.name;
+        data.username = user_status.split("_")[0];
+        data.status = user_status.split("_")[1];
+        return data;
+    };
+});
+App.controller('ReportController', function($scope, $http, $q, ReportService, ngDialog) {
 
     var self = this;
 
@@ -226,6 +271,12 @@ App.controller('ReportController', function($scope, $http, $q, ReportService) {
 
     $scope.assigneeData = function() {
         return ReportService.assigneeData;
+    };
+
+    $scope.getAssigneeResolutionFor = function (name, index) {
+        var assignee_resolution = name+'_'+$scope.assigneeResolutions()[index];
+        ReportService.extractAssigneeResolutionData(assignee_resolution);
+        ngDialog.open({ template: 'assignee.html', width: 1000, className: 'ngdialog-theme-default' });
     };
 
     $scope.rowCollection = [{

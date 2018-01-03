@@ -14,6 +14,10 @@
     <script src="https://code.angularjs.org/1.5.0-rc.0/angular-animate.js"></script>
     <script src="https://code.angularjs.org/1.5.0-rc.0/angular-route.js"></script>
     <script src="https://code.angularjs.org/1.5.0-rc.0/angular-resource.js"></script>
+
+    <script src="node_modules/ng-dialog/js/ngDialog.min.js"></script>
+    <link rel="stylesheet" href="node_modules/ng-dialog/css/ngDialog.css">
+    <link rel="stylesheet" href="node_modules/ng-dialog/css/ngDialog-theme-default.css">
     <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
     <script src="smart-table.min.js"></script>
     <script src="app.js"></script>
@@ -31,9 +35,10 @@
     <br>
     <br>
     <div id="report-body" data-ng-controller="ReportController as reportCtrl">
-        <h3 style="text-align: center;">Bug's backlog per day</h3>
+        <h3 style="text-align: center;">Bug's backlog per day<span class="small"><a href="#" ng-click="backlogView = !backlogView">    -    {{ (backlogView) ? "Show table" : "Show chart"}}</a></span></h3>
+        
         <div class="row" data-ng-if="!loading()">
-            <div class="col-md-offset-1 col-md-5" data-ng-init="backlogChart()">
+            <div class="col-md-offset-1 col-md-10" data-ng-init="backlogChart()" ng-hide="backlogView">
                 <br>
                 <br>
                 <br>
@@ -53,14 +58,14 @@
                     </tbody>
                 </table>
             </div>
-            <div class="col-md-6">
+            <div class="col-md-8" ng-hide="!backlogView">
                 <div id="bug-backlog-chart"></div>
             </div>
         </div>
         <hr>
-        <h3 style="text-align: center;">Bug per component grouped by severities</h3>
+        <h3 style="text-align: center;">Bug per component grouped by severities<span class="small"><a href="#" ng-click="severityView = !severityView">    -    {{ (severityView) ? "Show table" : "Show chart"}}</a></span></h3>
         <div class="row" data-ng-if="!loading()">
-            <div class="col-md-offset-1 col-md-5" data-ng-init="componentChart()">
+            <div class="col-md-offset-1 col-md-8" data-ng-init="componentChart()" ng-hide="severityView">
                 <br>
                 <br>
                 <br>
@@ -82,19 +87,19 @@
                     </tbody>
                 </table>
             </div>
-            <div class="col-md-6">
+            <div class="col-md-8" ng-hide="!severityView">
                 <div id="bug-component-chart"></div>
             </div>
         </div>
         <hr>
-        <h3 style="text-align: center;">Bug per assignee grouped by resolution</h3>
+        <h3 style="text-align: center;">Bug per assignee grouped by resolution<span class="small"><a href="#" ng-click="resolutionView = !resolutionView">    -    {{ (resolutionView) ? "Show table" : "Show chart"}}</a></span></h3>
         <div class="row" data-ng-if="!loading()">
-            <div class="col-md-offset-1 col-md-5" >
+            <div class="col-md-offset-1 col-md-8" >
                 <br>
                 <br>
                 <br>
                 <br>
-                <table st-table="assigneeData()" class="table table-striped">
+                <table st-table="assigneeData()" class="table table-striped" ng-hide="resolutionView">
                     <thead>
                         <tr>
                             <th st-sort="name">Assignee</th>
@@ -105,13 +110,17 @@
                     <tbody>
                         <tr ng-repeat="row in assigneeData()">
                             <td>{{row.name}}</td>
-                            <td ng-repeat="value in row.values track by $index">{{value}}</td>
+                            <td ng-repeat="value in row.values track by $index">
+                              <a href="" ng-click="getAssigneeResolutionFor(row.name, $index)">
+                                {{value}}
+                             </a>  
+                            </td>
                             <td>{{row.total}}</td>
                         </tr>
                     </tbody>
                 </table>
             </div>
-            <div class="col-md-6" data-ng-init="assigneeChart()">
+            <div class="col-md-8" data-ng-init="assigneeChart()" ng-hide="!resolutionView">
                 <div id="bug-assignee-chart"></div>
             </div>
         </div>

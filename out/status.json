@@ -1,7 +1,0 @@
-status_callback([
-    "UNCONFIRMED", 
-    "CONFIRMED", 
-    "IN_PROGRESS", 
-    "RESOLVED", 
-    "VERIFIED"
-]);

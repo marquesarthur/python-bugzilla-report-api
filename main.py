@@ -17,6 +17,7 @@ TO_DATE = 2
 DEFAULT_ARGS_LENGTH = 1
 DATE_STR_FORMAT = "%Y%m%d"
 
+
 # Some methods for test, at leat while I am developing the tool
 bugzillaData = Bugzilla(config['username'], config['password'], config['uri'])
 bugzillaData.setUp()
